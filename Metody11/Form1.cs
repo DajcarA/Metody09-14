@@ -25,16 +25,17 @@ namespace Metody11
             string[] slova = s.Split(oddelovace, StringSplitOptions.RemoveEmptyEntries);
             int pocetSlov = slova.Length;
             retezecBezCifer = s;
-            for (int i = 0; i < retezecBezCifer.Length; ++i)
+            
+            int i = 0;
+            while(i < retezecBezCifer.Length)
             {
-                
-
-                    if (char.IsDigit(retezecBezCifer[i])){
+                if (char.IsDigit(retezecBezCifer[i]))
+                {
                     retezecBezCifer = retezecBezCifer.Remove(i, 1);
-                    ++i;
+                    --i;
 
-                    }
-                
+                }
+                ++i;
             }
 
             return pocetSlov;

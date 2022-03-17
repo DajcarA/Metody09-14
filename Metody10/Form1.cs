@@ -24,17 +24,18 @@ namespace Metody10
              cifSoucet = 0;
              lichCifSoucet = 0;
              sudCifSoucet = 0;
-            foreach(int znak in retezec)
+            foreach(char znak in retezec)
             {
-                if(znak >= '0' && znak <= '9')
+                if(char.IsDigit(znak))
                 {
                     obsahuje = true;
-                    cifSoucet += znak;
+                    int cislo = Convert.ToInt32(char.ToString(znak));
+                    cifSoucet += cislo;
                     if (znak % 2 == 0)
                     {
-                        sudCifSoucet += znak;
+                        sudCifSoucet += cislo;
                     }
-                    else lichCifSoucet += znak;
+                    else lichCifSoucet += cislo;
                 }
                 
             }
@@ -49,7 +50,7 @@ namespace Metody10
             int cifSouc;
             if (ObsahujeCislici(retezec, out cifSouc, out lichCifSouc, out sudCifSouc))
                 {
-                MessageBox.Show("Retezec obsahuje cifru, ciferny soucet cifer je " + cifSouc + " soucet lichych cifer je " + lichCifSouc + " soucet sud cifer je" + sudCifSouc);
+                MessageBox.Show("Retezec obsahuje cifer , ciferny soucet cifer je " + cifSouc + " soucet lichych cifer je " + lichCifSouc + " soucet sud cifer je" + sudCifSouc);
             }
             else MessageBox.Show(" Neobsahuje cifru");
         }
